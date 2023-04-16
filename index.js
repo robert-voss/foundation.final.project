@@ -6,7 +6,7 @@ const authorInput = document.getElementById('author');//grabbing the author Inpu
 const subjectsInput = document.getElementById('subjects');//grabbing the subjects Input
 const languageInput = document.getElementById('language');//grabbing the language Input
 
-// Add event listener for "Add Book" button click
+// Added event listener for "Add Book" button click
 document.getElementById('addBookBtn').addEventListener('click', function() {
     const title = titleInput.value;
     const author = authorInput.value;
@@ -15,8 +15,10 @@ document.getElementById('addBookBtn').addEventListener('click', function() {
 
     const newBook = new Book(author, language, subjects, title);
 
-    myBookshelf.addBook(newBook) //updated the bookshelf instance
-    myBookshelf.render() //make sure the Books render accordingly
+    //updated the bookshelf instance, new books are pushed to end of array.
+    myBookshelf.addBook(newBook) 
+    //make sure the Books render accordingly
+    myBookshelf.render() 
 
   });
 

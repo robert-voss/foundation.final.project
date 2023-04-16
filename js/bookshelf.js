@@ -3,23 +3,15 @@ class Bookshelf {
         this.books = [];
         this.favorites = []; // Array to store favorite books
         this.favoriteBooksCount = 0
+        this.comments = []
     }
-
     seed(bookData){
-        // **this is the previous method
-        // for(const book of bookData){
-        //     const newBook = new Book(book.author, book.language, book.subject, book.title)
-        //     this.books.push(newBook)
-        // }
-        // this.render()
-
-        // **this is the new method
         this.books = bookData.map((book) => new Book(book.author, book.language, book.subject, book.title))
         this.render()
 
     }
     addBook (book) {
-        this.books.push(book)
+        this.books.push(book);
       }
     
     render(){
@@ -32,14 +24,8 @@ class Bookshelf {
         }
          
         bookshelfWrapper.append(bookList)
-        document.body.append(bookshelfWrapper);
-
-        
-
-        
+        document.body.append(bookshelfWrapper);       
 }
-
-
     updateFavorites(){
         this.favorites = this.books.filter(book => book.isFavorite);
     }
@@ -51,6 +37,7 @@ class Bookshelf {
             }
             return count;
         }, 0); // initial count is 0
+        
     }
  }
     

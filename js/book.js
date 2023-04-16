@@ -6,6 +6,7 @@ class Book {
         this.title = title;
         this.isFavorite = false
         this.favoriteBooksCount = 0
+        this.comments = []
     }
     render(){
         const bookInfo = document.createElement("li")
@@ -41,6 +42,7 @@ class Book {
 
         })   
         })
+        
 
         // Create DOM element to display favorite books count
         const favoriteCountElement = document.createElement("p");
@@ -57,6 +59,23 @@ class Book {
 
         const commentBtn = document.createElement("button")
         commentBtn.innerHTML = "Comment"
+
+        commentBtn.addEventListener("click", () =>{
+            const commentSection = document.createElement("textarea")
+            commentSection.setAttribute('cols', 30)
+            commentSection.setAttribute('rows', 10)
+            commentSection.setAttribute('maxLength', 280)
+
+            //This is the send button that appears alongside the textarea 
+            const sendBtn = document.createElement('button')
+            sendBtn.innerHTML = 'Send'
+            //This is the book instance maintaining user comments
+            const userComment = commentSection.value
+            this.comments.push(userComment)
+
+            bookInfo.append(sendBtn)
+            bookInfo.append(commentSection)
+        })
 
         
 
